@@ -8,10 +8,12 @@ class Player extends GameObject {
     }
 
     draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
-        ctx.strokeStyle = "red";
-        ctx.stroke();
+        this.ctx.drawImage(PLAYER_IMAGE, 
+            this.x,
+            this.y,
+            this.width,
+            this.height
+            );
     }
 
     update() {
@@ -27,6 +29,6 @@ class Player extends GameObject {
        if (this.game.keys["ArrowDown"]) {
            this.y += 5;
        }
-        
     }
+
 }

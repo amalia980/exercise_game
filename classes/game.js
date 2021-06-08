@@ -1,3 +1,4 @@
+  
 class Game {
     constructor(ctx) {
         this.gameObjects = [];
@@ -13,6 +14,7 @@ class Game {
 
         this.gameObjects.push(new Coin(400, 350, ctx, this));
 
+        // rack upp handen nar ni ser en gul cirkel.
 
         this.keys = {};
 
@@ -25,6 +27,7 @@ class Game {
         }.bind(this) );
     }
 
+    // rita pa skarmen
     draw() {
         this.ctx.fillStyle = "black";
         this.ctx.fillRect(0, 0, 640, 480);
@@ -36,15 +39,16 @@ class Game {
         this.drawScore();
     }
 
+    // rack upp handen nar ni kanner att ni fatt
+    // en lagom niva pa asteroider.
+   
+
     // rakna ut saker
     update() {
-        if(this.insertEnemy.length < 100) {
-            console.log("hej");
-            this.insertEnemy();
 
-            if(getRandomNumber(0, 12) === 1) {
-                this.insertEnemy();
-            }
+        // kasta en tarning.
+        if (getRandomNumber(0, 12) === 1) {
+            this.insertEnemy();
         }
 
         this.gameObjects.forEach(function(obj){
@@ -71,11 +75,17 @@ class Game {
         this.score += 1;
     }
 
+    collide() {
+        this.score = 0;
+    }
+
     insertEnemy() {
         const x = getRandomNumber(0, 640);
         const y = -128;
         this.gameObjects.push(new Enemy(x, y, ctx, this, 32, 32));
     }
+
+    // rack upp handen nar ni ser bilder
 
     drawScore() {
         this.ctx.font = "22px Sans-Serif";

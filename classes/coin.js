@@ -9,10 +9,12 @@ class Coin extends GameObject {
     }
 
     draw() {
-        this.ctx.beginPath();
-        this.ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
-        this.ctx.strokeStyle = "yellow";
-        this.ctx.stroke();
+        this.ctx.drawImage(COIN_IMAGE, 
+            this.x,
+            this.y,
+            this.width,
+            this.height
+            );
     }
 
 
