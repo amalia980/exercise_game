@@ -9,7 +9,8 @@ class Coin extends GameObject {
     }
 
     draw() {
-        this.ctx.drawImage(COIN_IMAGE, 
+        this.ctx.drawImage(
+            CARROT_IMAGE, 
             this.x,
             this.y,
             this.width,
@@ -21,26 +22,10 @@ class Coin extends GameObject {
     update() {
         this.game.gameObjects.forEach(function(gameObject){
             if(gameObject.constructor.name === "Player") {
-                
-                /*================================ y ===============================*/
-
-                if (this.y - this.radius <= gameObject.y + gameObject.radius) {
-
-                    if (this.y + this.radius >= gameObject.y - gameObject.radius) {
-                      
-
-                        /* ========================= x ================================ */
-               
-                        if (this.x - this.radius <= gameObject.x + gameObject.radius) {
-                            if (this.x + this.radius >= gameObject.x - gameObject.radius) {
-                                this.game.whenCoinRemoved();
-                                this.game.removeObject(this);
-                            }
-                        }
-
-                    }
+                if (this.isTouching(gameObject)) {
+                    this.game.whenCarrotRemoved();
+                    this.game.removeObject(this);
                 }
-
             }
         }.bind(this)   );
     }
