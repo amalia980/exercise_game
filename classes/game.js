@@ -39,7 +39,7 @@ class Game {
     update() {
 
         // kasta en tarning.
-        if (getRandomNumber(0, 12) === 1) {
+        if (getRandomNumber(0, 35) === 1) {
             this.insertEnemy();
         }
 
@@ -67,10 +67,10 @@ class Game {
     }
 
  
-    whenHitDuck(x, y, asteroid) {
+    whenHitDuck(x, y, duck) {
         this.score = 0;
         this.gameObjects.push(new Explosion(x, y, ctx, this));
-        this.removeObject(asteroid);
+        this.removeObject(duck);
     }
 
     insertEnemy() {

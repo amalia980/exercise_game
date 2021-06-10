@@ -6,7 +6,7 @@ class Enemy extends GameObject {
         this.width = width * this.scale;
         this.height = height * this.scale;
         this.radius = this.width;
-        this.speed = getRandomNumber(3, 5);
+        this.speed = getRandomNumber(1, 3);
     }
 
     draw() {
