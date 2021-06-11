@@ -67,9 +67,16 @@ class Game {
     }
 
  
-    whenHitDuck(x, y, duck) {
+    whenHitDuck(player, duck) {
+        const x = player.x + player.width / 2;
+        const y = player.y + player.height / 2;
+
         this.score = 0;
-        this.gameObjects.push(new Explosion(x, y, ctx, this));
+        
+        const explosion = new Explosion (x, y, ctx, this);
+        explosion.x -= explosion.width / 2;
+        explosion.y -= explosion.height / 2;
+        this.gameObjects.push(explosion);
         this.removeObject(duck);
     }
 
